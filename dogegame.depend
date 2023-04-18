@@ -1,0 +1,101 @@
+# depslib dependency file v1.0
+1681740687 source:d:\flappy doge\dogegame\code\doge.cpp
+	"doge.h"
+	<stdio.h>
+	<iostream>
+
+1681531503 d:\flappy doge\dogegame\code\doge.h
+	"lib.h"
+	"pipe.h"
+
+1681778852 d:\flappy doge\dogegame\code\lib.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<string>
+	<vector>
+	<stdio.h>
+
+1681786576 d:\flappy doge\dogegame\code\pipe.h
+	"lib.h"
+	<iostream>
+	<vector>
+
+1681779615 source:d:\flappy doge\dogegame\code\enemy.cpp
+	<stdio.h>
+	<iostream>
+	"enemy.h"
+
+1681786576 d:\flappy doge\dogegame\code\enemy.h
+	"lib.h"
+	<iostream>
+	<vector>
+
+1681786575 source:d:\flappy doge\dogegame\code\game.cpp
+	"game.h"
+	"lib.h"
+	<iostream>
+
+1681787043 d:\flappy doge\dogegame\code\game.h
+	"rocket.h"
+	"enemy.h"
+	"doge.h"
+	"pipe.h"
+	"land.h"
+	"sound.h"
+	<string>
+	<fstream>
+	<sstream>
+
+1681779181 d:\flappy doge\dogegame\code\land.h
+	"lib.h"
+	<vector>
+
+1681780699 d:\flappy doge\dogegame\code\sound.h
+	<SDL_mixer.h>
+	<string>
+	"lib.h"
+
+1681779181 source:d:\flappy doge\dogegame\code\land.cpp
+	"land.h"
+	<stdio.h>
+	<iostream>
+	<stdlib.h>
+	"land.h"
+	<stdio.h>
+	<iostream>
+	<stdlib.h>
+
+1681531522 source:d:\flappy doge\dogegame\code\lib.cpp
+	"lib.h"
+	<iostream>
+
+1681786576 source:d:\flappy doge\dogegame\code\main.cpp
+	"game.h"
+	"lib.h"
+	<time.h>
+	<stdlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1681740687 source:d:\flappy doge\dogegame\code\pipe.cpp
+	"pipe.h"
+	"stdio.h"
+
+1681787947 source:d:\flappy doge\dogegame\code\sound.cpp
+	"sound.h"
+	<stdio.h>
+	<iostream>
+	<string>
+
+1681787947 source:d:\flappy doge\dogegame\code\rocket.cpp
+	"rocket.h"
+	"stdio.h"
+	<iostream>
+
+1681786848 d:\flappy doge\dogegame\code\rocket.h
+	"lib.h"
+	"enemy.h"
+	<iostream>
+
