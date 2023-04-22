@@ -2,7 +2,7 @@
 #include <iostream>
 #include "enemy.h"
 
-int enemy :: frame = 0;
+//int enemy :: frame = 0;
 
 vector<position> posEnemy;
 
@@ -13,7 +13,7 @@ bool enemy :: init ()
     for (int i = 0; i < TOTAL_ENEMY; i++)
             {
                 position temp;
-                temp.getPos(SCREEN_WIDTH+350+110+i*(220),20);
+                temp.getPos(SCREEN_WIDTH+350+110+i*(220),25);
                 posEnemy.push_back(temp);
             }
 
@@ -134,5 +134,13 @@ void enemy :: update ()
             }
         }
 
+    }
+}
+
+void enemy :: reset ()
+{
+    if(die)
+    {
+        frame = 0;
     }
 }

@@ -13,13 +13,11 @@ class enemy : LTexture
   private:
 
   int angle = 0;
-  static int frame;
+  int frame = 0;
+  static const int enemy_animation=5;
+  SDL_Rect gSpriteClips [enemy_animation];
 
   public:
-
-  static const int enemy_animation=5;
-
-  SDL_Rect gSpriteClips [enemy_animation];
 
   bool init ();
 
@@ -28,6 +26,8 @@ class enemy : LTexture
   void Free();
 
   void update();
+
+  void reset();
 
   int width() {return getWidth();}
 

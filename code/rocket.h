@@ -6,12 +6,12 @@
 
 using namespace std;
 
+extern position posRocket;
 
 class rocket : LTexture
 {
   private:
 
-  position posRocket;
   int ahead = 0;
 
   public:
@@ -23,5 +23,11 @@ class rocket : LTexture
   void render();
 
   void update();
+
+  void reset();
+
+  int width() {return getWidth();}
+
+  int height() {return getHeight();}
 
 };

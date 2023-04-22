@@ -6,10 +6,12 @@
 
 using namespace std;
 
+position posRocket;
+
 bool rocket :: init ()
 {
 
-    posRocket.getPos(posEnemy[ahead].x-10, posEnemy[ahead].y);
+    posRocket.getPos(posEnemy[ahead].x-60, posEnemy[ahead].y);
 
     if(isNULL())
     {
@@ -28,7 +30,7 @@ void rocket :: Free()
 
 void rocket :: render()
 {
-        if(posRocket.x <= SCREEN_WIDTH && posRocket.x > 0 )
+        if(posRocket.x <= SCREEN_WIDTH && posRocket.x >= -10 )
         {
             Render (posRocket.x, posRocket.y);
         }
@@ -38,18 +40,18 @@ void rocket :: update ()
 {
     if(!die)
     {
-        if (posRocket.x <= 0)
+        if (posRocket.x <= -10)
         {
-            if (posEnemy[ahead].x > 100)
+            if (posEnemy[ahead].x > 200)
             {
-                posRocket.x = posEnemy[ahead].x-5;
+                posRocket.x = posEnemy[ahead].x-50;
                 posRocket.y = posEnemy[ahead].y;
             }
             else
             {
                 ahead = (ahead+2)%TOTAL_ENEMY;
             }
-            posRocket.x = posEnemy[ahead].x-10;
+            posRocket.x = posEnemy[ahead].x-50;
             posRocket.y =  posEnemy[ahead].y;
         }
         else
@@ -57,4 +59,9 @@ void rocket :: update ()
             posRocket.x-=5;
         }
     }
+}
+
+void rocket :: reset()
+{
+    ahead = 0;
 }

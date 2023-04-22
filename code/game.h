@@ -1,5 +1,6 @@
 #pragma once
 
+#include "explode.h"
 #include "rocket.h"
 #include "enemy.h"
 #include "doge.h"
@@ -17,7 +18,7 @@ class game:LTexture
 public:
     struct input
     {
-        enum type { QUIT, PLAY, NONE, PAUSE,CLICK_PAUSE, CLICK_QUIT};
+        enum type { QUIT, PLAY, NONE, PAUSE,CLICK_PAUSE, CLICK_QUIT, CLICK_LEVEL, CLICK_BACK, CLICK_NORMAL, CLICK_HARD};
         type Type;
     };
     input userInput;
@@ -27,6 +28,7 @@ public:
     land land;
     enemy enemy;
     rocket rocket;
+    explode explode;
 
 public:
     game();
@@ -65,6 +67,25 @@ public:
         return enemy.height();
     }
 
+    int get_Rocket_Width()
+    {
+        return rocket.width();
+    }
+
+    int get_Rocket_Height()
+    {
+        return rocket.height();
+    }
+
+    int get_Explode_Width()
+    {
+        return explode.width();
+    }
+    int get_Explode_Height()
+    {
+        return explode.height();
+    }
+
     void takeInput();
 
     void display();
@@ -83,7 +104,7 @@ public:
 
     void renderBackgroundNight();
 
-    void renderLand();
+//    void renderLand();
 
     void resume();
 
@@ -114,6 +135,26 @@ public:
     void renderquit();
 
     bool checkclick_quit();
+
+    void renderLevel();
+
+    bool checkclick_level();
+
+    void render_back_ground_level();
+
+    void renderBack();
+
+    bool checkclick_back();
+
+    void render_level_normal();
+
+    bool checkclick_level_normal();
+
+    void render_level_hard();
+
+    bool checkclick_level_hard();
+
+    void renderTick(bool isHard);
 
 private:
     const double scaleNumberS = 0.75;

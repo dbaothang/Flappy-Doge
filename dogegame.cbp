@@ -35,6 +35,8 @@
 		<Unit filename="code/doge.h" />
 		<Unit filename="code/enemy.cpp" />
 		<Unit filename="code/enemy.h" />
+		<Unit filename="code/explode.cpp" />
+		<Unit filename="code/explode.h" />
 		<Unit filename="code/game.cpp" />
 		<Unit filename="code/game.h" />
 		<Unit filename="code/land.cpp" />

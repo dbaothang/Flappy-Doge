@@ -29,7 +29,7 @@ public:
 
     bool checkUp (position a, bool b);
 
-    void update();
+    void update(bool isHard);
 
     int width() {return getWidth();}
 

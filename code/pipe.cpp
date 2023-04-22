@@ -70,7 +70,7 @@ bool pipe :: checkUp (position a, bool b)
     }
 }
 
-void pipe::update()
+void pipe::update(bool isHard)
 {
     if (!die)
     {
@@ -85,81 +85,54 @@ void pipe::update()
             {
                 posPipe[i].x -= 3;
 
-                if(posPipe[i].y>=-323 && posPipe[i].y<=-211)
+                if (isHard)
                 {
-                    if( checkDown(posPipe[i],pos_Pipe[i]))
+                    if(posPipe[i].y>=-323 && posPipe[i].y<=-211)
                     {
-                        posPipe[i].y++;
-                        if(posPipe[i].y==-211)
+                        if( checkDown(posPipe[i],pos_Pipe[i]))
                         {
-                            pos_Pipe[i]=true;
-                            pipeDown=false;
+                            posPipe[i].y++;
+                            if(posPipe[i].y==-211)
+                            {
+                                pos_Pipe[i]=true;
+                                pipeDown=false;
+                            }
+                        }
+
+                        if(!checkDown(posPipe[i],pos_Pipe[i]))
+                        {
+                            posPipe[i].y--;
+                            if(posPipe[i].y==-323)
+                            {
+                                pipeDown=true;
+                                pos_Pipe[i]=false;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        if(checkUp(posPipe[i], pos_Pipe[i]))
+                        {
+                            posPipe[i].y--;
+                            if(posPipe[i].y==-210)
+                            {
+                                pos_Pipe[i]=true;
+                                pipeUp=false;
+                            }
+                        }
+
+                        if(!checkUp(posPipe[i], pos_Pipe[i]))
+                        {
+                            posPipe[i].y++;
+                            if(posPipe[i].y==-97)
+                            {
+                                pos_Pipe[i]=false;
+                                pipeUp=true;
+                            }
                         }
                     }
-
-                    if(!checkDown(posPipe[i],pos_Pipe[i]))
-                    {
-                        posPipe[i].y--;
-                        if(posPipe[i].y==-323)
-                        {
-                            pipeDown=true;
-                            pos_Pipe[i]=false;
-                        }
-                    }
-
                 }
-                else
-                {
-                    if(checkUp(posPipe[i], pos_Pipe[i]))
-                    {
-                        posPipe[i].y--;
-                        if(posPipe[i].y==-210)
-                        {
-                            pos_Pipe[i]=true;
-                            pipeUp=false;
-                        }
-                    }
-
-                    if(!checkUp(posPipe[i], pos_Pipe[i]))
-                    {
-                        posPipe[i].y++;
-                        if(posPipe[i].y==-97)
-                        {
-                            pos_Pipe[i]=false;
-                            pipeUp=true;
-                        }
-                    }
-                }
-
-
-//                    if( pos_Pipe[i] && pipeDown && posPipe[i].y>=-323 && posPipe[i].y<=-212)
-//                    {
-//                        posPipe[i].y++;
-//                        if(posPipe[i].y==-211)
-//                        {
-//                            pipeDown=false;
-//                            pos_Pipe[i]=false;
-//                        }
-//                    }
-//                    if(!pipeDown && posPipe[i].y <= -211 && posPipe[i].y >= -323)
-//                    {
-//                        posPipe[i].y--;
-//                        if(posPipe[i].y==-323)
-//                        {
-//                            pipeDown=true;
-//                            pos_Pipe[i]=true;
-//                        }
-//                    }
-//                    if(pipeUp && posPipe[i].y>=-209 && posPipe[i].y<=-98)
-//                    {
-//                        posPipe[i].y--;
-//                        if(posPipe[i].y==-210) pipeUp=false;
-//                    }
-//                    if(!pipeUp && posPipe[i].y >= -210)
-//                    {
-//                        posPipe[i].y++;
-//                        if(posPipe[i].y==-98) pipeUp=true;
-//                    }
             }
         }
     }

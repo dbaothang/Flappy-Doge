@@ -24,10 +24,26 @@ void game::takeInput()
         {
             userInput.Type=input::CLICK_PAUSE;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP&& checkclick_quit()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_quit()==true)
         {
             userInput.Type = input::CLICK_QUIT;
             quit=true;
+        }
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level()==true)
+        {
+            userInput.Type=input::CLICK_LEVEL;
+        }
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_back()==true)
+        {
+            userInput.Type=input::CLICK_BACK;
+        }
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level_normal()==true)
+        {
+            userInput.Type=input::CLICK_NORMAL;
+        }
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level_hard()==true)
+        {
+            userInput.Type=input::CLICK_HARD;
         }
 
     }
@@ -324,13 +340,13 @@ void game::renderBackgroundNight()
 	image.free();
 }
 
-void game::renderLand()
-{
-	LTexture image;
-	image.Load("image/land.png", 1);
-	image.Render((SCREEN_WIDTH - image.getWidth()) / 2, SCREEN_HEIGHT- image.getHeight());
-	image.free();
-}
+//void game::renderLand()
+//{
+//	LTexture image;
+//	image.Load("image/land.png", 1);
+//	image.Render((SCREEN_WIDTH - image.getWidth()) / 2, SCREEN_HEIGHT- image.getHeight());
+//	image.free();
+//}
 
 void game::resume()
 {
@@ -498,4 +514,148 @@ bool game::checkclick_quit()
 		return true;
 	}
 	return false;
+}
+
+void game :: renderLevel()
+{
+    if(!checkclick_level())
+    {
+        LTexture image;
+        image.Load("image/level_button.png",1);
+        image.Render(190,530);
+        image.free();
+    }
+    else
+    {
+        LTexture image;
+        image.Load("image/level_button.png",1.2);
+        image.Render(190-5,530-5);
+        image.free();
+    }
+}
+
+bool game :: checkclick_level()
+{
+    int x, y;
+	SDL_GetMouseState(&x, &y);
+	if (x > 190 && x < 300 && y > 530 && y < 600)
+	{
+		return true;
+	}
+	return false;
+}
+
+void game :: render_back_ground_level()
+{
+    LTexture image;
+	image.Load("image/space_back_ground.png", 1);
+	image.Render(0, 0);
+	image.free();
+}
+
+void game :: renderBack()
+{
+    if(!checkclick_back())
+    {
+        LTexture image;
+        image.Load2("image/back.png", 0.6);
+        image.Render(20, 20);
+        image.free();
+    }
+    else
+    {
+        LTexture image;
+        image.Load2("image/back.png", 0.8);
+        image.Render(20-5, 20-5);
+        image.free();
+    }
+
+}
+
+bool game :: checkclick_back()
+{
+    int x, y;
+	SDL_GetMouseState(&x, &y);
+	if (x > 20 && x < 120 && y > 20 && y < 98)
+	{
+		return true;
+	}
+	return false;
+}
+
+void game :: render_level_normal()
+{
+    if(!checkclick_level_normal())
+    {
+        LTexture image;
+        image.Load("image/level_normal.png", 1);
+        image.Render( (SCREEN_WIDTH-image.getWidth())/2, 100);
+        image.free();
+    }
+    else
+    {
+        LTexture image;
+        image.Load("image/level_normal.png", 1.2);
+        image.Render((SCREEN_WIDTH-image.getWidth())/2-10, 100-10);
+        image.free();
+    }
+}
+
+bool game :: checkclick_level_normal()
+{
+    int x, y;
+	SDL_GetMouseState(&x, &y);
+	if (x > 125 && x < 125 + 250 && y > 100 && y < 190)
+	{
+		return true;
+	}
+	return false;
+}
+
+
+void game :: render_level_hard()
+{
+    if(!checkclick_level_hard())
+    {
+        LTexture image;
+        image.Load("image/level_hard.png", 1);
+        image.Render( (SCREEN_WIDTH-image.getWidth())/2, 250);
+        image.free();
+    }
+    else
+    {
+        LTexture image;
+        image.Load("image/level_hard.png", 1.2);
+        image.Render((SCREEN_WIDTH-image.getWidth())/2-10, 250-10);
+        image.free();
+    }
+}
+
+bool game :: checkclick_level_hard()
+{
+    int x, y;
+	SDL_GetMouseState(&x, &y);
+	if (x > 125 && x < 125 + 250 && y > 250 && y < 340)
+	{
+		return true;
+	}
+	return false;
+}
+
+void game :: renderTick(bool isHard)
+{
+    if(!isHard)
+    {
+        LTexture image;
+        image.Load("image/tick.png", 1);
+        image.Render( 375, 100);
+        image.free();
+    }
+    else
+    {
+        LTexture image;
+        image.Load("image/tick.png", 1);
+        image.Render( 375, 250);
+        image.free();
+    }
 }
