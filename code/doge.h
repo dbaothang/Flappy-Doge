@@ -1,5 +1,6 @@
 #pragma once
 
+#include "laser.h"
 #include "enemy.h"
 #include "rocket.h"
 #include "explode.h"

@@ -41,6 +41,8 @@
 		<Unit filename="code/game.h" />
 		<Unit filename="code/land.cpp" />
 		<Unit filename="code/land.h" />
+		<Unit filename="code/laser.cpp" />
+		<Unit filename="code/laser.h" />
 		<Unit filename="code/lib.cpp" />
 		<Unit filename="code/lib.h" />
 		<Unit filename="code/main.cpp" />

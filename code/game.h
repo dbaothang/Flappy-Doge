@@ -1,5 +1,6 @@
 #pragma once
 
+#include "laser.h"
 #include "explode.h"
 #include "rocket.h"
 #include "enemy.h"
@@ -18,7 +19,10 @@ class game:LTexture
 public:
     struct input
     {
-        enum type { QUIT, PLAY, NONE, PAUSE,CLICK_PAUSE, CLICK_QUIT, CLICK_LEVEL, CLICK_BACK, CLICK_NORMAL, CLICK_HARD};
+        enum type { QUIT, PLAY, NONE, PAUSE,CLICK_PAUSE, CLICK_QUIT,
+        CLICK_LEVEL, CLICK_BACK, CLICK_NORMAL, CLICK_HARD, CLICK_MUSIC,
+        CLICK_PRESS_START, CLICK_SAVE_ME, CLICK_WIND_FALL, CLICK_FOREVER_BOUND};
+
         type Type;
     };
     input userInput;
@@ -29,7 +33,7 @@ public:
     enemy enemy;
     rocket rocket;
     explode explode;
-
+    laser laser;
 public:
     game();
 
@@ -81,6 +85,7 @@ public:
     {
         return explode.width();
     }
+
     int get_Explode_Height()
     {
         return explode.height();
@@ -97,6 +102,8 @@ public:
     void renderScoreLarge();
 
     void renderBestScore();
+
+    void render_BestScore_Hard();
 
     void renderMessage();
 
@@ -156,7 +163,33 @@ public:
 
     void renderTick(bool isHard);
 
+    void render_music_button();
+
+    bool checkclick_music_button();
+
+    void render_back_ground_music();
+
+    void render_music_pressStart();
+
+    bool check_music_pressStart();
+
+    void render_music_saveMe();
+
+    bool check_music_saveMe();
+
+    void render_music_windFall();
+
+    bool check_music_windFall();
+
+    void render_music_foreverBound();
+
+    bool check_music_foreverBound();
+
+    void render_tick_music(bool is_press_start, bool is_save_me, bool is_wind_fall, bool is_forever_bound);
+
+
 private:
     const double scaleNumberS = 0.75;
     int bestScore;
+    int best_Score_Hard;
 };

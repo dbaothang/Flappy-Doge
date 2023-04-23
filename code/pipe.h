@@ -13,8 +13,8 @@ class pipe:LTexture
 {
 private:
 
-    const int randMin = -373 + 50;
-    const int randMax = SCREEN_HEIGHT - LAND_HEIGHT - PIPE_SPACE - 373 - 50;
+    const int randMin = -373 + 60;
+    const int randMax = SCREEN_HEIGHT - LAND_HEIGHT - PIPE_SPACE - 373 - 60;
     static bool pipeUp;
     static bool pipeDown;
 

@@ -99,12 +99,13 @@
 	"enemy.h"
 	<iostream>
 
-1682090173 source:c:\users\admin kh\desktop\flappy-doge\code\doge.cpp
+1682179476 source:c:\users\admin kh\desktop\flappy-doge\code\doge.cpp
 	"doge.h"
 	<stdio.h>
 	<iostream>
 
-1682090173 c:\users\admin kh\desktop\flappy-doge\code\doge.h
+1682177079 c:\users\admin kh\desktop\flappy-doge\code\doge.h
+	"laser.h"
 	"enemy.h"
 	"rocket.h"
 	"explode.h"
@@ -119,7 +120,7 @@
 	<vector>
 	<stdio.h>
 
-1681914633 c:\users\admin kh\desktop\flappy-doge\code\pipe.h
+1682133297 c:\users\admin kh\desktop\flappy-doge\code\pipe.h
 	"lib.h"
 	<iostream>
 	<vector>
@@ -134,12 +135,13 @@
 	<iostream>
 	<vector>
 
-1682001858 source:c:\users\admin kh\desktop\flappy-doge\code\game.cpp
+1682265201 source:c:\users\admin kh\desktop\flappy-doge\code\game.cpp
 	"game.h"
 	"lib.h"
 	<iostream>
 
-1682071825 c:\users\admin kh\desktop\flappy-doge\code\game.h
+1682263367 c:\users\admin kh\desktop\flappy-doge\code\game.h
+	"laser.h"
 	"explode.h"
 	"rocket.h"
 	"enemy.h"
@@ -156,16 +158,16 @@
 	"enemy.h"
 	<iostream>
 
-1681779181 c:\users\admin kh\desktop\flappy-doge\code\land.h
+1682130113 c:\users\admin kh\desktop\flappy-doge\code\land.h
 	"lib.h"
 	<vector>
 
-1681780699 c:\users\admin kh\desktop\flappy-doge\code\sound.h
+1682264393 c:\users\admin kh\desktop\flappy-doge\code\sound.h
 	<SDL_mixer.h>
 	<string>
 	"lib.h"
 
-1681779181 source:c:\users\admin kh\desktop\flappy-doge\code\land.cpp
+1682130113 source:c:\users\admin kh\desktop\flappy-doge\code\land.cpp
 	"land.h"
 	<stdio.h>
 	<iostream>
@@ -179,7 +181,7 @@
 	"lib.h"
 	<iostream>
 
-1682089598 source:c:\users\admin kh\desktop\flappy-doge\code\main.cpp
+1682265321 source:c:\users\admin kh\desktop\flappy-doge\code\main.cpp
 	"game.h"
 	"lib.h"
 	<time.h>
@@ -197,13 +199,13 @@
 	"stdio.h"
 	<iostream>
 
-1681787947 source:c:\users\admin kh\desktop\flappy-doge\code\sound.cpp
+1682264393 source:c:\users\admin kh\desktop\flappy-doge\code\sound.cpp
 	"sound.h"
 	<stdio.h>
 	<iostream>
 	<string>
 
-1682072049 source:c:\users\admin kh\desktop\flappy-doge\code\explode.cpp
+1682090552 source:c:\users\admin kh\desktop\flappy-doge\code\explode.cpp
 	<stdio.h>
 	"explode.h"
 	<iostream>
@@ -212,4 +214,12 @@
 	"lib.h"
 	"rocket.h"
 	<iostream>
+
+1682177350 c:\users\admin kh\desktop\flappy-doge\code\laser.h
+	"lib.h"
+	<iostream>
+
+1682177247 source:c:\users\admin kh\desktop\flappy-doge\code\laser.cpp
+	<iostream>
+	"laser.h"
 

@@ -223,6 +223,12 @@ void doge :: update_threat(int enemyWidth, int enemyHeight, int rocketWidth, int
        {
            die = true;
        }
+
+    if (posDoge.y+getHeight() > 440 && laserOn )
+    {
+        die = true;
+    }
+
 }
 
 void doge :: reset()

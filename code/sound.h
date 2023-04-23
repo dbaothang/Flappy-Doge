@@ -9,7 +9,7 @@ using namespace std;
 class sound:LTexture
 {
 public:
-    bool init();
+    bool init(bool is_press_start, bool is_save_me, bool is_wind_fall, bool is_forever_bound);
 
     void Free();
 
@@ -52,6 +52,7 @@ private:
     Mix_Chunk* point = NULL;
     Mix_Chunk* play = NULL;
     Mix_Music* music = NULL;
+    string music_path="";
 
 //    Mix_Chunk* drop = NULL;
     SDL_Rect Mute ;

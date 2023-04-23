@@ -5,13 +5,28 @@
 #include <string>
 
 int sound :: n = 0;
-bool sound::init()
+bool sound::init(bool is_press_start, bool is_save_me, bool is_wind_fall, bool is_forever_bound)
 {
     string breath_path = "sound/sfx_breath.wav";
     string hit_path = "sound/sfx_bonk.wav";
     string sound_path = "sound/sound.png";
     string point_path = "sound/sfx_point.wav";
-    string music_path = "sound/press_start_music.mp3";
+    if(is_press_start)
+    {
+        music_path = "sound/press_start_music.mp3";
+    }
+    if(is_save_me)
+    {
+        music_path = "sound/Save_Me.mp3";
+    }
+    if(is_wind_fall)
+    {
+        music_path = "sound/windfall.mp3";
+    }
+    if(is_forever_bound)
+    {
+        music_path = "sound/forever_Bound.mp3";
+    }
     string play_path= "sound/button_play.wav";
 
     bool success = true;
