@@ -18,16 +18,18 @@ int main(int argc, char** argv)
     int frameTime;
     game g;
 
-    bool isLevel = 0;
-    bool isHard = 0;
-    bool isMenu = 0;
-    bool isPause = 0;
-    bool isDark = 0;
-    bool isMusic = 0;
-    bool is_press_start = 1;
-    bool is_save_me = 0;
-    bool is_wind_fall = 0;
-    bool is_forever_bound = 0;
+    isLevel = 0;
+    isHard = 0;
+    isMenu = 0;
+    isPause = 0;
+    isDark = 0;
+    isMusic = 0;
+    is_press_start = 1;
+    is_save_me = 0;
+    is_wind_fall = 0;
+    is_forever_bound = 0;
+    bool isSound = 1;
+
 
     while(!g.isQuit())
     {
@@ -123,7 +125,7 @@ int main(int argc, char** argv)
                                 isDark = abs(1 - isDark);
                                 g.shiba.init(isDark,isHard);
                             }
-                            g.sound.checkSound();
+                            g.sound.checkSound(isMenu);
                             g.userInput.Type = game::input::NONE;
                         }
                     }
@@ -231,7 +233,7 @@ int main(int argc, char** argv)
                             isDark = abs(1 - isDark);
                             g.shiba.init(isDark,isHard);
                         }
-                        g.sound.checkSound();
+                        g.sound.checkSound(isMenu);
                         g.userInput.Type = game::input::NONE;
                     }
                 }
@@ -326,9 +328,9 @@ int main(int argc, char** argv)
                 }
                 else
                 {
+
                     if(g.userInput.Type==game::input::CLICK_MUSIC)
                     {
-                        cout <<"cc";
                         isMusic = 1;
                         g.userInput.Type = game::input::NONE;
                     }
@@ -348,6 +350,7 @@ int main(int argc, char** argv)
                         g.render_music_windFall();
                         g.render_music_foreverBound();
                         g.render_tick_music(is_press_start, is_save_me, is_wind_fall, is_forever_bound);
+                        g.sound.changeMusic(is_press_start, is_save_me, is_wind_fall, is_forever_bound);
 
                         if(g.userInput.Type==game::input::CLICK_PRESS_START)
                         {
@@ -381,6 +384,7 @@ int main(int argc, char** argv)
                             is_forever_bound=1;
                             g.userInput.Type = game::input::NONE;
                         }
+
                         if(g.userInput.Type==game::input::CLICK_BACK)
                         {
                             isMusic = 0;
@@ -427,7 +431,11 @@ int main(int argc, char** argv)
                         g.land.init();
                         g.enemy.init();
                         g.pipe.init();
-                        g.sound.init(is_press_start, is_save_me, is_wind_fall, is_forever_bound);
+//                        if(isSound)
+//                        {
+//                             g.sound.init(is_press_start, is_save_me, is_wind_fall, is_forever_bound);
+//                             isSound = 0;
+//                        }
                         g.shiba.init(isDark,isHard);
                         g.shiba.render();
                         g.renderMessage();

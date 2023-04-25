@@ -3,6 +3,16 @@
 
 bool LTexture::quit = false;
 bool LTexture::die = true;
+bool isLevel = 0;
+bool isHard = 0;
+bool isMenu = 0;
+bool isPause = 0;
+bool isDark = 0;
+bool isMusic = 0;
+bool is_press_start = 1;
+bool is_save_me = 0;
+bool is_wind_fall = 0;
+bool is_forever_bound = 0;
 int LTexture::score = 0;
 SDL_Window* LTexture::gWindow = NULL;
 SDL_Renderer* LTexture::gRenderer = NULL;

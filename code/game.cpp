@@ -20,48 +20,48 @@ void game::takeInput()
 		{
 			userInput.Type = input::PAUSE;
 		}
-		else if ( event.type==SDL_MOUSEBUTTONUP && checkclickpause_resume()==true)
+		else if ( event.type==SDL_MOUSEBUTTONUP && checkclickpause_resume()==true && isMenu)
         {
             userInput.Type=input::CLICK_PAUSE;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_quit()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_quit()==true && !isMenu && !isLevel && !isMusic)
         {
             userInput.Type = input::CLICK_QUIT;
             quit=true;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level()==true && !isMenu && !isLevel )
         {
             userInput.Type=input::CLICK_LEVEL;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_back()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_back()==true && (isLevel || isMusic) )
         {
             userInput.Type=input::CLICK_BACK;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level_normal()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level_normal()==true && isLevel && !isMenu)
         {
             userInput.Type=input::CLICK_NORMAL;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level_hard()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_level_hard()==true && isLevel && !isMenu )
         {
             userInput.Type=input::CLICK_HARD;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_music_button()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_music_button()==true && !isMenu && !isMusic)
         {
             userInput.Type=input::CLICK_MUSIC;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && check_music_pressStart()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && check_music_pressStart()==true && !isMenu && isMusic)
         {
             userInput.Type=input::CLICK_PRESS_START;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && check_music_saveMe()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && check_music_saveMe()==true && !isMenu && isMusic)
         {
             userInput.Type=input::CLICK_SAVE_ME;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && check_music_windFall()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && check_music_windFall()==true && !isMenu && isMusic )
         {
             userInput.Type=input::CLICK_WIND_FALL;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && check_music_foreverBound()==true)
+        else if (event.type==SDL_MOUSEBUTTONUP && check_music_foreverBound()==true && !isMenu && isMusic )
         {
             userInput.Type=input::CLICK_FOREVER_BOUND;
         }
@@ -73,7 +73,7 @@ game::game()
 {
     initGraphic();
     pipe.init();
-//    sound.init();
+    sound.init();
     enemy.init();
     land.init();
     rocket.init();
@@ -454,14 +454,20 @@ void game::pause()
 
 bool game::checkclickpause_resume()
 {
-    int x, y;
-	SDL_GetMouseState(&x, &y);
-	if ((x > SCREEN_WIDTH - 50 && x < SCREEN_WIDTH - 50+26)  && (y >20 && y < 20+28))
-	{
-		return true;
-	}
-	return false;
-
+    if(isMenu)
+    {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        if ((x > SCREEN_WIDTH - 50 && x < SCREEN_WIDTH - 50+26)  && (y >20 && y < 20+28))
+        {
+            return true;
+        }
+        return false;
+    }
+    else
+    {
+        return false;
+    }
 }
 void game::renderPauseTab()
 {
@@ -756,14 +762,14 @@ void game :: render_music_button()
     {
         LTexture image;
         image.Load2("image/music_button.png", 1);
-        image.Render( 20, 20);
+        image.Render( 435, 15);
         image.free();
     }
     else
     {
         LTexture image;
         image.Load2("image/music_button.png", 1.2);
-        image.Render(20-5, 20-5);
+        image.Render(435-5, 15-5);
         image.free();
     }
 }
@@ -772,7 +778,7 @@ bool game :: checkclick_music_button()
 {
     int x, y;
 	SDL_GetMouseState(&x, &y);
-	if (x > 20 && x < 20+52 && y > 20 && y < 20 + 51)
+	if (x > 435 && x < 435+52 && y > 15 && y < 15 + 51)
 	{
 		return true;
 	}
@@ -781,7 +787,6 @@ bool game :: checkclick_music_button()
 
 void game :: render_back_ground_music()
 {
-    cout << "cc";
     LTexture image;
 	image.Load("image/music_background.png", 1);
 	image.Render(0, 0);
@@ -877,7 +882,7 @@ bool game :: check_music_windFall()
 
 void game :: render_music_foreverBound()
 {
-    if(!check_music_windFall())
+    if(!check_music_foreverBound())
     {
         LTexture image;
         image.Load("image/music_forever_bound.png", 1);

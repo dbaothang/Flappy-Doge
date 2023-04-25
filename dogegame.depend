@@ -112,7 +112,7 @@
 	"lib.h"
 	"pipe.h"
 
-1681778852 c:\users\admin kh\desktop\flappy-doge\code\lib.h
+1682344097 c:\users\admin kh\desktop\flappy-doge\code\lib.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -135,12 +135,12 @@
 	<iostream>
 	<vector>
 
-1682265201 source:c:\users\admin kh\desktop\flappy-doge\code\game.cpp
+1682385831 source:c:\users\admin kh\desktop\flappy-doge\code\game.cpp
 	"game.h"
 	"lib.h"
 	<iostream>
 
-1682263367 c:\users\admin kh\desktop\flappy-doge\code\game.h
+1682345733 c:\users\admin kh\desktop\flappy-doge\code\game.h
 	"laser.h"
 	"explode.h"
 	"rocket.h"
@@ -162,7 +162,7 @@
 	"lib.h"
 	<vector>
 
-1682264393 c:\users\admin kh\desktop\flappy-doge\code\sound.h
+1682385831 c:\users\admin kh\desktop\flappy-doge\code\sound.h
 	<SDL_mixer.h>
 	<string>
 	"lib.h"
@@ -177,11 +177,11 @@
 	<iostream>
 	<stdlib.h>
 
-1681531522 source:c:\users\admin kh\desktop\flappy-doge\code\lib.cpp
+1682348975 source:c:\users\admin kh\desktop\flappy-doge\code\lib.cpp
 	"lib.h"
 	<iostream>
 
-1682265321 source:c:\users\admin kh\desktop\flappy-doge\code\main.cpp
+1682383867 source:c:\users\admin kh\desktop\flappy-doge\code\main.cpp
 	"game.h"
 	"lib.h"
 	<time.h>
@@ -199,7 +199,7 @@
 	"stdio.h"
 	<iostream>
 
-1682264393 source:c:\users\admin kh\desktop\flappy-doge\code\sound.cpp
+1682383478 source:c:\users\admin kh\desktop\flappy-doge\code\sound.cpp
 	"sound.h"
 	<stdio.h>
 	<iostream>

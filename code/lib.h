@@ -9,6 +9,17 @@
 
 using namespace std;
 
+extern bool isLevel;
+extern bool isHard;
+extern bool isMenu;
+extern bool isPause ;
+extern bool isDark ;
+extern bool isMusic ;
+extern bool is_press_start ;
+extern bool is_save_me ;
+extern bool is_wind_fall ;
+extern bool is_forever_bound ;
+
 class position
 {
 public:
@@ -47,6 +58,7 @@ public:
     static bool quit;
     static bool die;
     static int score;
+
 
     static const int SCREEN_WIDTH = 500; //350
     static const int SCREEN_HEIGHT = 625;

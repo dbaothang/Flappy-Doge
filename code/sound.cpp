@@ -5,29 +5,33 @@
 #include <string>
 
 int sound :: n = 0;
-bool sound::init(bool is_press_start, bool is_save_me, bool is_wind_fall, bool is_forever_bound)
+bool sound::init()
 {
-    string breath_path = "sound/sfx_breath.wav";
-    string hit_path = "sound/sfx_bonk.wav";
-    string sound_path = "sound/sound.png";
-    string point_path = "sound/sfx_point.wav";
-    if(is_press_start)
-    {
-        music_path = "sound/press_start_music.mp3";
-    }
-    if(is_save_me)
-    {
-        music_path = "sound/Save_Me.mp3";
-    }
-    if(is_wind_fall)
-    {
-        music_path = "sound/windfall.mp3";
-    }
-    if(is_forever_bound)
-    {
-        music_path = "sound/forever_Bound.mp3";
-    }
-    string play_path= "sound/button_play.wav";
+
+
+    breath_path = "sound/sfx_breath.wav";
+    hit_path = "sound/sfx_bonk.wav";
+    sound_path = "sound/sound.png";
+    point_path = "sound/sfx_point.wav";
+    music_path = "sound/press_start_music.mp3";
+//    if(is_press_start)
+//    {
+//        music_path = "sound/press_start_music.mp3";
+//    }
+//    if(is_save_me)
+//    {
+//        music_path = "sound/Save_Me.mp3";
+//    }
+//    if(is_wind_fall)
+//    {
+//        music_path = "sound/windfall.mp3";
+//    }
+//    if(is_forever_bound)
+//    {
+//        music_path = "sound/forever_Bound.mp3";
+//    }
+
+    play_path= "sound/button_play.wav";
 
     bool success = true;
 
@@ -87,7 +91,7 @@ bool sound::init(bool is_press_start, bool is_save_me, bool is_wind_fall, bool i
 
         Active.x = 0; Active.y = 0; Active.w = getWidth(); Active.h = getHeight() / 2;
         Mute.x = 0; Mute.y = getHeight() / 2; Mute.w = getWidth(); Mute.h = getHeight() / 2;
-        isPlay = true;
+//        isPlay = true;
     }
     return success;
 }
@@ -102,8 +106,37 @@ void sound::Free()
     hit = NULL;
     Mix_FreeChunk(point);
     point = NULL;
+    Mix_FreeChunk(play);
+    play = NULL;
+    Mix_FreeMusic(music);
+    music = NULL;
 
     Mix_Quit();
+}
+
+void sound :: changeMusic(bool is_press_start, bool is_save_me, bool is_wind_fall, bool is_forever_bound)
+{
+    if(is_press_start)
+    {
+        music_path = "sound/press_start_music.mp3";
+    }
+    if(is_save_me)
+    {
+        music_path = "sound/Save_Me.mp3";
+    }
+    if(is_wind_fall)
+    {
+        music_path = "sound/windfall.mp3";
+    }
+    if(is_forever_bound)
+    {
+        music_path = "sound/forever_Bound.mp3";
+    }
+    music = Mix_LoadMUS( music_path.c_str());
+    if( music == NULL )
+    {
+        printf( "Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError() );
+    }
 }
 
 void sound :: playMusic ()
@@ -135,6 +168,7 @@ void sound::playBreath()
     if (isPlay)
     {
         Mix_PlayChannel( -1, breath, 0 );
+        cout <<"abc";
     }
 }
 
@@ -195,17 +229,18 @@ void sound::renderSound()
     }
 }
 
-bool sound::checkSound()
+bool sound::checkSound(bool isMenu)
 {
-    int x, y;
-    SDL_GetMouseState(&x, &y);
-    if (x > POS_X && x < POS_X + getWidth() &&
-        y > POS_Y && y < POS_Y + getHeight())
-    {
-        isPlay = !isPlay;
-        return true;
-    }
-    return false;
+
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        if (x > POS_X && x < POS_X + getWidth() &&
+            y > POS_Y && y < POS_Y + getHeight() && isMenu )
+        {
+            isPlay = !isPlay;
+            return true;
+        }
+        return false;
 }
 
 void sound :: checkPause()
