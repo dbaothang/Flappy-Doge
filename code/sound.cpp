@@ -168,7 +168,6 @@ void sound::playBreath()
     if (isPlay)
     {
         Mix_PlayChannel( -1, breath, 0 );
-        cout <<"abc";
     }
 }
 

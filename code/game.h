@@ -21,7 +21,7 @@ public:
     {
         enum type { QUIT, PLAY, NONE, PAUSE,CLICK_PAUSE, CLICK_QUIT,
         CLICK_LEVEL, CLICK_BACK, CLICK_NORMAL, CLICK_HARD, CLICK_MUSIC,
-        CLICK_PRESS_START, CLICK_SAVE_ME, CLICK_WIND_FALL, CLICK_FOREVER_BOUND};
+        CLICK_PRESS_START, CLICK_SAVE_ME, CLICK_WIND_FALL, CLICK_FOREVER_BOUND, CLICK_HELP};
 
         type Type;
     };
@@ -186,6 +186,12 @@ public:
     bool check_music_foreverBound();
 
     void render_tick_music(bool is_press_start, bool is_save_me, bool is_wind_fall, bool is_forever_bound);
+
+    void render_help_button();
+
+    bool check_help_button();
+
+    void render_help_back_ground ();
 
 
 private:

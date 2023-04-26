@@ -33,7 +33,7 @@ void game::takeInput()
         {
             userInput.Type=input::CLICK_LEVEL;
         }
-        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_back()==true && (isLevel || isMusic) )
+        else if (event.type==SDL_MOUSEBUTTONUP && checkclick_back()==true && (isLevel || isMusic || isHelp) )
         {
             userInput.Type=input::CLICK_BACK;
         }
@@ -64,6 +64,10 @@ void game::takeInput()
         else if (event.type==SDL_MOUSEBUTTONUP && check_music_foreverBound()==true && !isMenu && isMusic )
         {
             userInput.Type=input::CLICK_FOREVER_BOUND;
+        }
+        else if (event.type==SDL_MOUSEBUTTONUP && check_help_button()==true && !isMenu && !isHelp)
+        {
+            userInput.Type=input::CLICK_HELP;
         }
 
     }
@@ -651,20 +655,21 @@ void game :: render_back_ground_level()
 
 void game :: renderBack()
 {
-    if(!checkclick_back())
-    {
-        LTexture image;
-        image.Load2("image/back.png", 0.6);
-        image.Render(20, 20);
-        image.free();
-    }
-    else
-    {
-        LTexture image;
-        image.Load2("image/back.png", 0.8);
-        image.Render(20-5, 20-5);
-        image.free();
-    }
+
+        if(!checkclick_back())
+        {
+            LTexture image;
+            image.Load2("image/back.png", 0.6);
+            image.Render(20, 20);
+            image.free();
+        }
+        else
+        {
+            LTexture image;
+            image.Load2("image/back.png", 0.8);
+            image.Render(20-5, 20-5);
+            image.free();
+        }
 
 }
 
@@ -939,4 +944,41 @@ void game :: render_tick_music(bool is_press_start, bool is_save_me, bool is_win
         image.Render( 370, 330);
         image.free();
     }
+}
+
+void game :: render_help_button()
+{
+    if(!check_help_button())
+    {
+        LTexture image;
+        image.Load("image/help_button.png",1);
+        image.Render(375,530);
+        image.free();
+    }
+    else
+    {
+        LTexture image;
+        image.Load("image/help_button.png",1.2);
+        image.Render(375-5,530-5);
+        image.free();
+    }
+}
+
+bool game :: check_help_button()
+{
+    int x, y;
+	SDL_GetMouseState(&x, &y);
+	if (x > 375 && x < 375+100 && y > 530 && y < 530 + 70)
+	{
+		return true;
+	}
+	return false;
+}
+
+void game :: render_help_back_ground()
+{
+    LTexture image;
+    image.Load("image/help_background.png", 1);
+    image.Render( 0,0);
+    image.free();
 }

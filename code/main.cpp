@@ -328,6 +328,11 @@ int main(int argc, char** argv)
                 }
                 else
                 {
+                    if(g.userInput.Type==game::input::CLICK_HELP)
+                    {
+                        isHelp = 1;
+                        g.userInput.Type = game::input::NONE;
+                    }
 
                     if(g.userInput.Type==game::input::CLICK_MUSIC)
                     {
@@ -341,7 +346,18 @@ int main(int argc, char** argv)
                         g.userInput.Type = game::input::NONE;
                     }
 
-                    if(!isLevel && isMusic )
+                    if(!isLevel && !isMusic && isHelp)
+                    {
+                        g.render_help_back_ground();
+                        g.renderBack();
+                        if(g.userInput.Type==game::input::CLICK_BACK)
+                        {
+                            isHelp = 0;
+                            g.userInput.Type=game::input::NONE;
+                        }
+                    }
+
+                    if(!isLevel && isMusic && !isHelp )
                     {
                         g.render_back_ground_music();
                         g.renderBack();
@@ -392,7 +408,7 @@ int main(int argc, char** argv)
                         }
                     }
 
-                    if(isLevel && !isMusic)
+                    if(isLevel && !isMusic && !isHelp)
                     {
                         g.render_back_ground_level();
                         g.renderBack();
@@ -419,7 +435,7 @@ int main(int argc, char** argv)
                         }
 
                     }
-                    if(!isLevel && !isMusic)
+                    if(!isLevel && !isMusic && !isHelp)
                     {
 //                        g.enemy.reset();
 //                        g.rocket.reset();
@@ -441,6 +457,7 @@ int main(int argc, char** argv)
                         g.renderMessage();
                         g.renderLevel();
                         g.render_music_button();
+                        g.render_help_button();
                         g.renderquit();
                         g.replay();
 

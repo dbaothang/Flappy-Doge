@@ -19,6 +19,7 @@ extern bool is_press_start ;
 extern bool is_save_me ;
 extern bool is_wind_fall ;
 extern bool is_forever_bound ;
+extern bool isHelp;
 
 class position
 {
