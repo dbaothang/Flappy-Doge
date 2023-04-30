@@ -37,6 +37,12 @@ public:
 
     void stopMusic();
 
+    void check_lgMusic();
+
+    void lg1Music();
+
+    void lg2Music();
+
     static int n;
 
     void dogedie();
@@ -49,6 +55,10 @@ private:
     const int POS_Y = 267;
     bool isPlay = 1;
     bool check_Pause = 0;
+    bool lg_music = 0;
+    bool turn_on = 0;
+    bool turn_off = 1;
+
     Mix_Chunk* breath = NULL;
     Mix_Chunk* hit = NULL;
     Mix_Chunk* point = NULL;

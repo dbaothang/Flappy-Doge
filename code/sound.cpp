@@ -163,6 +163,33 @@ void sound :: stopMusic()
     if(die) {Mix_HaltMusic();}
 }
 
+
+void sound :: check_lgMusic()
+{
+    if(!isPlay && die)
+    {
+        lg_music=1;
+    }
+}
+
+void sound :: lg1Music ()
+{
+    if(lg_music && isMenu )
+    {
+        Mix_VolumeMusic(0);
+        Mix_PlayMusic( music, -1 );
+    }
+}
+
+void sound :: lg2Music()
+{
+    if(isPlay && !isPause && lg_music)
+    {
+        Mix_VolumeMusic(60);
+        lg_music = 0;
+    }
+}
+
 void sound::playBreath()
 {
     if (isPlay)
@@ -206,13 +233,17 @@ void sound::dogedie()
 
 void sound :: turn_on_off_music (bool isPause)
 {
-    if( !isPlay && isPause )
+    if( !isPlay && isPause && turn_off )
     {
         Mix_VolumeMusic(0);
+        turn_off = 0;
+        turn_on = 1;
     }
-    if( isPlay && !isPause )
+    if( isPlay && !isPause && turn_on)
     {
         Mix_VolumeMusic(60);
+        turn_off = 1;
+        turn_on = 0;
     }
 }
 

@@ -28,12 +28,12 @@ void laser :: Free ()
 
 void laser :: render ()
 {
-    if((score%7==2) || laserOn)
+    if((score%5==2) || laserOn)
     {
         laserOn = true;
         Render(posLaser.x, posLaser.y);
     }
-    if(score%7==4)
+    if(score%5==4)
     {
         laserOn=false;
     }

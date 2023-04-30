@@ -20,5 +20,5 @@ LINKER_FLAGS = -lSDl2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 COMPILER_FLAGS = -lmingw32
 
 all:
-	$(COMPILER) $(INCLUDE_PATH) $(LIBRARY_PATH) -o ./main code/*.cpp $(COMPILER_FLAGS) $(LINKER_FLAGS)
+	$(COMPILER) $(INCLUDE_PATH) $(LIBRARY_PATH) -o ./FlappyDoge code/*.cpp $(COMPILER_FLAGS) $(LINKER_FLAGS)
 	

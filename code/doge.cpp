@@ -131,7 +131,7 @@ void doge::update_pipe( int pipeWidth, int pipeHeight,bool isHard)
             if ( (posDoge.x + getWidth()> posPipe[ahead].x  ) && (posDoge.x +5 < posPipe[ahead].x + pipeWidth) &&
              (posDoge.y + 5 < posPipe[ahead].y + pipeHeight || posDoge.y  + getHeight() +5 > posPipe[ahead].y + pipeHeight + PIPE_SPACE ) )
             {
-                die = true;
+                die = false;
 
             }
             else if (posDoge.x > posPipe[ahead].x + pipeWidth )
@@ -148,7 +148,7 @@ void doge::update_pipe( int pipeWidth, int pipeHeight,bool isHard)
             }
             if(posDoge.y < 5)
             {
-                die=true;
+                die=false;
 
                 posDoge.y=0;
             }
@@ -175,7 +175,7 @@ void doge::update_pipe( int pipeWidth, int pipeHeight,bool isHard)
             if ( (posDoge.x + getWidth()> posPipe[ahead].x  ) && (posDoge.x +5 < posPipe[ahead].x + pipeWidth) &&
              (posDoge.y + 5 < posPipe[ahead].y + pipeHeight || posDoge.y  + getHeight() +5 > posPipe[ahead].y + pipeHeight + PIPE_SPACE ) )
             {
-                die = true;
+                die = false;
 
             }
             else if (posDoge.x > posPipe[ahead].x + pipeWidth )
@@ -186,13 +186,13 @@ void doge::update_pipe( int pipeWidth, int pipeHeight,bool isHard)
 
             if (posDoge.y > SCREEN_HEIGHT - LAND_HEIGHT -  SHIBA_HEIGHT - 5)
             {
-                die = true;
+                die = false;
 
                 posDoge.y=SCREEN_HEIGHT - LAND_HEIGHT -  SHIBA_HEIGHT - 5;
             }
             if(posDoge.y < 5)
             {
-                die = true;
+                die = false;
 
                 posDoge.y=0;
             }
@@ -208,25 +208,25 @@ void doge :: update_threat(int enemyWidth, int enemyHeight, int rocketWidth, int
        ( (posDoge.y < posEnemy[ahead2].y+enemyHeight) ||
         ((posEnemy[ahead2].y+enemyHeight>posDoge.y + getHeight()) && (posDoge.y + getHeight()> posEnemy[ahead2].y) )))
        {
-           die = true;
+           die = false;
        }
     else {ahead2=(2+ahead2)%TOTAL_ENEMY;}
 
      if( (posDoge.x + getWidth() > posRocket.x) && (posDoge.x < posRocket.x+rocketWidth) &&
        ( (posDoge.y < posRocket.y+rocketHeight) || ((posRocket.y+rocketHeight>posDoge.y + getHeight())&&(posDoge.y + getHeight() > posRocket.y ))  ) )
        {
-           die = true;
+           die = false;
        }
 
     if( boom && (posDoge.x + getWidth() > posExplode.x && posDoge.x < posExplode.x+explodeWidth) &&
        ( posDoge.y < posExplode.y + explodeHeight || (  (posExplode.y+explodeHeight>posDoge.y + getHeight())&&(posDoge.y + getHeight() > posExplode.y ) ) ) )
        {
-           die = true;
+           die = false;
        }
 
     if (posDoge.y+getHeight() > 440 && laserOn )
     {
-        die = true;
+        die = false;
     }
 
 }

@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 //                    g.explode.render(isPause);
 //                    g.rocket.render();
                     g.renderScoreLarge();
-
+                    g.sound.lg2Music();
                     g.sound.turn_on_off_music(isPause);
 
                     if (!isPause)
@@ -187,6 +187,8 @@ int main(int argc, char** argv)
                 g.rocket.render();
                 g.renderScoreLarge();
 
+
+                g.sound.lg2Music();
                 g.sound.turn_on_off_music(isPause);
 
                 if (!isPause)
@@ -460,14 +462,16 @@ int main(int argc, char** argv)
                         g.render_help_button();
                         g.renderquit();
                         g.replay();
+                        g.sound.check_lgMusic();
 
                         if (g.userInput.Type == game::input::PLAY&&g.checkReplay())
                         {
                             g.sound.play_button_play();
                             g.Restart();
-                            isMenu = 1;
-                            g.userInput.Type = game::input::NONE;
                             g.sound.playMusic();
+                            isMenu = 1;
+                            g.sound.lg1Music();
+                            g.userInput.Type = game::input::NONE;
                         }
                     }
 //                    g.land.update();
