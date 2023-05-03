@@ -9,45 +9,46 @@ using namespace std;
 class sound:LTexture
 {
 public:
-    bool init();
+    bool init(); // khởi tạo
 
-    void Free();
+    void Free(); // giải phóng
 
-    void playBreath();
+    void playBreath(); // tiếng thở khi cho shiba bay
 
-    void playHit();
+    void playHit(); // tiếng va chạm của shiba
 
-    void playPoint();
+    void playPoint(); // tiếng điểm số
 
     void changeMusic(bool is_press_start, bool is_save_me, bool is_wind_fall, bool is_forever_bound);
+    // hàm thay đổi âm nhạc
 
-    void playMusic();
+    void playMusic(); // chơi nhạc
 
-    void play_button_play();
+    void play_button_play(); // âm thanh khi ấn vào nút play
 
-    void renderSound();
+    void renderSound(); // vẽ hình ảnh âm thanh
 
-    bool checkSound(bool isMenu);
+    bool checkSound(bool isMenu); // xem có tắt_bật âm thanh không
 
-    void checkPause();
+    void checkPause(); // kiểm tra xem người chơi có tạm dừng game không
 
-    void pauseMusic();
+    void pauseMusic(); // tạm dừng âm nhạc
 
-    void continueMusic();
+    void continueMusic(); // tiếp tục âm nhạc
 
-    void stopMusic();
+    void stopMusic(); // dừng hẳn âm thanh
 
-    void check_lgMusic();
+    void check_lgMusic(); // xem đã tắt âm thanh và shiba đã chết chưa
 
-    void lg1Music();
+    void lg1Music(); // từ cái hàm trên thì sẽ phát nhạc lúc chơi lại game với âm lượng 0
 
-    void lg2Music();
+    void lg2Music(); // nếu đã có 2 hàm trên thì kiểm tra đang chơi và đã bật lại âm thanh và biến lg_music
 
-    static int n;
+    static int n; // biến để mỗi khi shiba được cộng điểm sẽ có âm thanh
 
-    void dogedie();
+    void dogedie(); // khi shiba chết biến quay trở về ban đầu
 
-    void turn_on_off_music (bool isPause);
+    void turn_on_off_music (bool isPause); // bật/tắt âm thanh nhạc
 
 private:
 
@@ -64,6 +65,7 @@ private:
     Mix_Chunk* point = NULL;
     Mix_Chunk* play = NULL;
     Mix_Music* music = NULL;
+
     string music_path="";
     string breath_path="";
     string hit_path="";

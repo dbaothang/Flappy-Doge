@@ -9,15 +9,15 @@ using namespace std;
 class land : LTexture
 {
 public:
-    bool init();
+    bool init(); // khởi tạo
 
-    void Free();
+    void Free(); // giải phóng
 
-    void render();
+    void render(); // vẽ lên màn hình
 
-    void update();
+    void update(); // cập nhật land
 
 private:
     position posLand;
-    string saved_path = "";
+    string saved_path = ""; // lấy link ảnh của land
 };

@@ -17,10 +17,14 @@
 1. Chế độ normal : ![example](image/minhhoa4.png)
 2. Chế độ hard :  ![example](image/minhhoa5.png)
 #### Có 2 background chính trong lúc chơi:
-- Background ban ngày, như dưới đây: 
+- Background ban ngày, như dưới đây:
 ![example](image/background.jpg)
+
 - Background ban đêm, như dưới đây: 
 ![example](image/background-night.jpg)
+#### Cách chơi của game: 
+- Bạn nhấn nút `space(nút cách)` hoặc `click chuột ` hoặc `mũi tên lên` để shiba bay lên cao.
+- Bạn có thể tạm dừng trò chơi bằng nút `esc` hoặc click vào ô dừng ở phía trên cùng bên phải của trò chơi.
 #### Về menu lúc ta tạm dừng trò chơi: 
 ![example](image/minhhoa6.png)
 - Trước tiên bạn sẽ mục `score` là điểm số hiện tại bạn dành được, mục `best` là điểm cao nhất bạn đạt được (tùy `level` bạn chọn thì sẽ có mục `best` khác nhau nhé)

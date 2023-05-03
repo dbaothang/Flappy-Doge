@@ -30,7 +30,7 @@ void rocket :: Free()
 
 void rocket :: render()
 {
-        if(posRocket.x <= SCREEN_WIDTH && posRocket.x >= -10 )
+        if(posRocket.x <= SCREEN_WIDTH && posRocket.x >= 0 )
         {
             Render (posRocket.x, posRocket.y);
         }

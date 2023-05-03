@@ -15,22 +15,22 @@ class enemy : LTexture
   int angle = 0;
   int frame = 0;
   static const int enemy_animation=5;
-  SDL_Rect gSpriteClips [enemy_animation];
+  SDL_Rect gSpriteClips [enemy_animation]; // xử lí animation dơi
 
   public:
 
-  bool init ();
+  bool init (); // khởi tạo
 
-  void render(bool isPause);
+  void render(bool isPause); // vẽ lên màn hình
 
-  void Free();
+  void Free(); // giải phóng
 
-  void update();
+  void update(); // cập nhật dơi
 
-  void reset();
+  void reset(); // reset lại frame
 
-  int width() {return getWidth();}
+  int width() {return getWidth();} // hàm lầy độ dài (theo trục x)
 
-  int height() {return getHeight();}
+  int height() {return getHeight();} // hàm lấy độ cao (theo trục y)
 
 };

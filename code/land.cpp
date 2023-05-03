@@ -23,18 +23,6 @@ bool land::init()
         }
     }
     return false;
-//    if (isNULL())
-//    {
-//        if ( Load( "land.png", 1 ) )
-//        {
-//            return true;
-//        }
-//        else
-//        {
-//            return false;
-//        }
-//    }
-//    return false;
 }
 
 void land::Free()

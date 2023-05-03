@@ -39,7 +39,7 @@ public:
 
     ~game();
 
-    bool initGraphic();
+    bool initGraphic(); // khởi tạo các thành phần đồ họa cho game, bao gồm cửa sổ, trình kết xuất, thư viện SDL_image và SDL_ttf.
 
     bool isQuit()
     {
@@ -91,27 +91,25 @@ public:
         return explode.height();
     }
 
-    void takeInput();
+    void takeInput(); // lấy dữ liệu từ người chơi
 
-    void display();
+    void display(); // in ra và giải phóng hình vẽ lên màn hình
 
-    void releaseGraphic();
+    void releaseGraphic(); // giải phóng dữ liệu
 
-    void renderScoreSmall();
+    void renderScoreSmall(); // in ra điểm ở menu pause
 
-    void renderScoreLarge();
+    void renderScoreLarge(); // in ra điểm ở phía trên
 
-    void renderBestScore();
+    void renderBestScore(); // in ra điểm cao nhất ở menu pause (level normal)
 
-    void render_BestScore_Hard();
+    void render_BestScore_Hard(); // in ra điểm cao nhất ở menu pause (level hard)
 
-    void renderMessage();
+    void renderMessage(); // in ra nền của menu pause
 
     void renderBackground();
 
     void renderBackgroundNight();
-
-//    void renderLand();
 
     void resume();
 

@@ -48,10 +48,10 @@ void explode :: Free ()
 }
 void explode :: render (bool isPause)
 {
-    SDL_Rect* currentClip = &gSpriteClips[ frame / 7 ];
+    SDL_Rect* currentClip = &gSpriteClips[ frame/7 ];
     if(!isPause && !die)
     {
-        if(posRocket.x<=-10 || boom)
+        if(posRocket.x<=0 || boom)
         {
             boom = true;
             if (frame/7 <= explode_animation)
@@ -61,7 +61,7 @@ void explode :: render (bool isPause)
             }
         }
     }
-    if( (isPause||die) && frame/4 <= explode_animation && boom)
+    if( (isPause||die) && boom )
     {
         Render (posExplode.x,posExplode.y,angle,currentClip);
     }
@@ -76,13 +76,6 @@ void explode :: update ()
     }
 }
 
-//void explode :: reset()
-//{
-//    if(die)
-//    {
-//        frame = 0;
-//    }
-//}
 
 void explode::reset_boom ()
 {

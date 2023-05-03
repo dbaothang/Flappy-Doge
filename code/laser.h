@@ -13,16 +13,16 @@ class laser : LTexture
 
     public:
 
-    bool init ();
+    bool init (); // khởi tạo
 
-    void Free();
+    void Free(); // giải phóng
 
-    void render();
+    void render(); // vẽ lên màn hình
 
-    void reset();
+    void reset(); // điều chỉnh lại từ đầu
 
-    int width() {return getWidth();}
+    int width() {return getWidth();} // hàm lấy chiều rộng (theo trục x)
 
-    int height() {return getHeight();}
+    int height() {return getHeight();} // hàm lấy độ cao (theo trục y)
 
 };

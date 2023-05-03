@@ -11,11 +11,11 @@ bool enemy :: init ()
     posEnemy.clear();
 
     for (int i = 0; i < TOTAL_ENEMY; i++)
-            {
-                position temp;
-                temp.getPos(SCREEN_WIDTH+350+110+i*(220),25);
-                posEnemy.push_back(temp);
-            }
+    {
+        position temp;
+        temp.getPos(SCREEN_WIDTH+350+110+i*(220),25);
+        posEnemy.push_back(temp);
+    }
 
             gSpriteClips[ 0 ].x =   0;
             gSpriteClips[ 0 ].y =   0;
@@ -61,14 +61,14 @@ void enemy :: Free ()
 void enemy :: render (bool isPause)
 {
     SDL_Rect* currentClip = &gSpriteClips[ frame / 5 ];
-    if(!die && !isPause)
+    if(!die && !isPause) // khi shiba chưa chết và game đang tiếp tục
     {
         for (int i=0;i<TOTAL_ENEMY;i++)
         {
             if(i%2==0)
             {
                 if (posEnemy[i].x <= SCREEN_WIDTH && posEnemy[i].x > -getWidth())
-
+                // dơi nằm trong màn hình và chưa đi quá độ rộng của nó
                 {
                     Render(posEnemy[i].x, posEnemy[i].y,angle,currentClip);
 

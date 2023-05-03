@@ -15,28 +15,25 @@ class explode : LTexture
 
     int angle = 0;
     int frame = 0;
+    bool stop_explode = 0; // biến này dùng để vẽ ảnh vụ nổ đang dừng lại
     static const int explode_animation=4;
-    SDL_Rect gSpriteClips [explode_animation];
+    SDL_Rect gSpriteClips [explode_animation]; // xử lí animation vụ nổ
 
     public :
 
-//    static bool boom;
+    bool init (); // khởi tạo
 
-    bool init ();
+    void render(bool isPause); // vẽ lên màn hình
 
-    void render(bool isPause);
+    void Free(); // giải phóng
 
-    void Free();
+    void update(); // cập nhật vụ nổ
 
-    void update();
+    void reset_boom(); // reset lại ban đầu
 
-//    void reset();
+    int width() {return getWidth();} // lấy chiều rộng (theo trục x)
 
-    void reset_boom();
-
-    int width() {return getWidth();}
-
-    int height() {return getHeight();}
+    int height() {return getHeight();} // lấy chiều cao(theo trục y)
 };
 
 

@@ -148,6 +148,11 @@ void sound :: playMusic ()
     }
 }
 
+void sound :: checkPause()
+{
+    check_Pause=abs(1-check_Pause);
+}
+
 void sound :: pauseMusic()
 {
     if(check_Pause) {Mix_PauseMusic();}
@@ -273,7 +278,3 @@ bool sound::checkSound(bool isMenu)
         return false;
 }
 
-void sound :: checkPause()
-{
-    check_Pause=abs(1-check_Pause);
-}

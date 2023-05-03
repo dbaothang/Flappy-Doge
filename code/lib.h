@@ -9,23 +9,23 @@
 
 using namespace std;
 
-extern bool isLevel;
-extern bool isHard;
-extern bool isMenu;
-extern bool isPause ;
-extern bool isDark ;
-extern bool isMusic ;
-extern bool is_press_start ;
-extern bool is_save_me ;
-extern bool is_wind_fall ;
-extern bool is_forever_bound ;
-extern bool isHelp;
+extern bool isLevel; // có click vào nút level của game không
+extern bool isHard; // có chọn game mức hard không
+extern bool isMenu; // có hiện menu lúc chết không
+extern bool isPause ; // có dừng không
+extern bool isDark ; // có chọn trời tối không
+extern bool isMusic ; // có click vào icon âm thanh của game không
+extern bool is_press_start ; // chọn bài này không
+extern bool is_save_me ;// chọn bài này không
+extern bool is_wind_fall ;// chọn bài này không
+extern bool is_forever_bound ;// chọn bài này không
+extern bool isHelp; // có chọn nút help trong game không
 
 class position
 {
 public:
     int x, y, angle, state;
-    void getPos(const int x, const int y);
+    void getPos(const int x, const int y); // lấy vị trí x,y
 };
 
 class LTexture

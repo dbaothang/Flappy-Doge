@@ -12,22 +12,22 @@ class rocket : LTexture
 {
   private:
 
-  int ahead = 0;
+  int ahead = 0; // giá trị để xét các các con dơi ( enemy[ehead] )
 
   public:
 
-  bool init();
+  bool init(); // khởi tạo
 
-  void Free();
+  void Free(); // giải phóng
 
-  void render();
+  void render(); // vẽ ra màn hình
 
-  void update();
+  void update(); // cập nhật rocket
 
-  void reset();
+  void reset(); // cập nhật lại như ban đầu
 
-  int width() {return getWidth();}
+  int width() {return getWidth();} // hàm lấy chiều rộng ( theo chiều x )
 
-  int height() {return getHeight();}
+  int height() {return getHeight();} // hàm lấy chiều cao ( theo chiều y )
 
 };

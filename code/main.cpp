@@ -28,20 +28,20 @@ int main(int argc, char** argv)
     is_save_me = 0;
     is_wind_fall = 0;
     is_forever_bound = 0;
-    bool isSound = 1;
+//    bool isSound = 1;
 
 
-    while(!g.isQuit())
+    while(!g.isQuit()) // khi người chơi chưa rời game
     {
         frameStart = SDL_GetTicks();
-        if (!isHard)
+        if (!isHard) // khi level normal
         {
                 if(!g.isDie())
                 {
-                    g.takeInput();
+                    g.takeInput(); // lấy dữ liệu từ người chơi
                     if (isPause == 0 && g.userInput.Type == game::input::PLAY && !g.checkclickpause_resume())
+                    // khi game đang tiếp tục
                     {
-
                         g.sound.playBreath();
                         g.shiba.resetTime();
                         g.userInput.Type = game::input::NONE;
@@ -53,6 +53,7 @@ int main(int argc, char** argv)
                     }
 
                     if (g.userInput.Type == game::input::PAUSE)
+                    //  bật hoặc tắt tạm dừng ( bấm nút esc )
                     {
                         g.sound.checkPause();
                         g.sound.pauseMusic();
@@ -62,6 +63,7 @@ int main(int argc, char** argv)
                     }
 
                     if(g.userInput.Type==game::input::CLICK_PAUSE)
+                    // bật hoặc tăt tạm dừng ( click vào ô tạm dừng trên góc trái trên cùng )
                     {
                         g.sound.checkPause();
                         g.sound.pauseMusic();
@@ -82,9 +84,6 @@ int main(int argc, char** argv)
                     g.pipe.render();
                     g.land.render();
                     g.shiba.render();
-//                    g.enemy.render(isPause);
-//                    g.explode.render(isPause);
-//                    g.rocket.render();
                     g.renderScoreLarge();
                     g.sound.lg2Music();
                     g.sound.turn_on_off_music(isPause);
@@ -94,9 +93,6 @@ int main(int argc, char** argv)
                         g.shiba.update_pipe(g.get_Pipe_Width(), g.get_Pipe_Height(), isHard);
                         g.pipe.update(isHard);
                         g.land.update();
-//                        g.enemy.update();
-//                        g.rocket.update();
-//                        g.explode.update();
                         g.pause();
                     }
                     else
@@ -113,6 +109,7 @@ int main(int argc, char** argv)
                         if (g.userInput.Type == game::input::PLAY)
                         {
                             if (g.checkReplay())
+                            // khi tạm dừng game và bạn bấm vào ô play
                             {
                                 isPause = 0;
                                 g.sound.checkPause();
@@ -121,6 +118,7 @@ int main(int argc, char** argv)
 
                             }
                             else if (g.changeTheme())
+                            // thay đổi màu sắc chú chó
                             {
                                 isDark = abs(1 - isDark);
                                 g.shiba.init(isDark,isHard);
@@ -134,6 +132,7 @@ int main(int argc, char** argv)
         }
 
      if(isHard)
+     // level hard về cơ bản nó chỉ thêm các hàm khác của level hard còn những cái cần giải thích vẫn giống level normal
      {
              if(!g.isDie())
              {
@@ -245,11 +244,9 @@ int main(int argc, char** argv)
 
      if (g.isDie())
         {
-            if (isMenu) {
-//                    g.enemy.reset();
-//                    g.rocket.reset();
-//                    g.explode.reset_boom();
-//                    g.shiba.reset();
+            if (isMenu)
+            // phát ra âm thanh shiba lúc chết
+            {
                     g.sound.playHit();
                     g.shiba.render();
                     g.sound.dogedie();
@@ -270,7 +267,8 @@ int main(int argc, char** argv)
                     g.userInput.Type = game::input::NONE;
                 }
 
-                if(!isLevel)
+                if(!isLevel && !isMusic && !isHelp)
+                // khi không click vào ô music và level và help của game
                 {
                     if (!isDark)
                     {
@@ -289,8 +287,10 @@ int main(int argc, char** argv)
                 g.land.render();
 //                g.explode.render(isPause);
                 if (isMenu)
+                // hiện ra menu lúc shiba chết
                 {
                     if(isHard)
+                    // nếu level hard
                     {
                         g.explode.render(isPause);
                         g.rocket.render();
@@ -300,11 +300,11 @@ int main(int argc, char** argv)
                         g.enemy.render(isPause);
                         g.laser.render();
 
-                        g.enemy.reset();
-                        g.rocket.reset();
-                        g.explode.reset_boom();
-                        g.shiba.reset();
-                        g.laser.reset();
+//                        g.enemy.reset();
+//                        g.rocket.reset();
+//                        g.explode.reset_boom();
+//                        g.shiba.reset();
+//                        g.laser.reset();
 
                         g.sound.stopMusic();
                         g.shiba.render();
@@ -328,31 +328,42 @@ int main(int argc, char** argv)
                     }
 
                 }
-                else
+                else // lúc này game đã quay trở lại màn hình chính
                 {
+                    g.enemy.reset();
+                    g.rocket.reset();
+                    g.explode.reset_boom();
+                    g.shiba.reset();
+                    g.laser.reset();
+
                     if(g.userInput.Type==game::input::CLICK_HELP)
+                    // chọn ô help của game
                     {
                         isHelp = 1;
                         g.userInput.Type = game::input::NONE;
                     }
 
                     if(g.userInput.Type==game::input::CLICK_MUSIC)
+                    // chọn ô music của game
                     {
                         isMusic = 1;
                         g.userInput.Type = game::input::NONE;
                     }
 
                     if( g.userInput.Type==game::input::CLICK_LEVEL )
+                    // chọn ô level của game
                     {
                         isLevel = 1;
                         g.userInput.Type = game::input::NONE;
                     }
 
                     if(!isLevel && !isMusic && isHelp)
+                    // nếu chọn ô help
                     {
                         g.render_help_back_ground();
                         g.renderBack();
                         if(g.userInput.Type==game::input::CLICK_BACK)
+                        // để quay trở lại màn hình chính
                         {
                             isHelp = 0;
                             g.userInput.Type=game::input::NONE;
@@ -360,6 +371,7 @@ int main(int argc, char** argv)
                     }
 
                     if(!isLevel && isMusic && !isHelp )
+                    // nếu chọn vào ô music
                     {
                         g.render_back_ground_music();
                         g.renderBack();
@@ -371,6 +383,7 @@ int main(int argc, char** argv)
                         g.sound.changeMusic(is_press_start, is_save_me, is_wind_fall, is_forever_bound);
 
                         if(g.userInput.Type==game::input::CLICK_PRESS_START)
+                        // nếu chọn bài press_start
                         {
                             is_press_start=1;
                             is_save_me=0;
@@ -378,7 +391,9 @@ int main(int argc, char** argv)
                             is_forever_bound=0;
                             g.userInput.Type = game::input::NONE;
                         }
+
                         if(g.userInput.Type==game::input::CLICK_SAVE_ME)
+                        // nếu chọn bài save_me
                         {
                             is_press_start=0;
                             is_save_me=1;
@@ -386,7 +401,9 @@ int main(int argc, char** argv)
                             is_forever_bound=0;
                             g.userInput.Type = game::input::NONE;
                         }
+
                         if(g.userInput.Type==game::input::CLICK_WIND_FALL)
+                        // nếu chọn bài wind_fall
                         {
                             is_press_start=0;
                             is_save_me=0;
@@ -394,7 +411,9 @@ int main(int argc, char** argv)
                             is_forever_bound=0;
                             g.userInput.Type = game::input::NONE;
                         }
+
                         if(g.userInput.Type==game::input::CLICK_FOREVER_BOUND)
+                        // nếu chọn bài forever_bound
                         {
                             is_press_start=0;
                             is_save_me=0;
@@ -404,6 +423,7 @@ int main(int argc, char** argv)
                         }
 
                         if(g.userInput.Type==game::input::CLICK_BACK)
+                        // để quay trở lại màn hình chính
                         {
                             isMusic = 0;
                             g.userInput.Type=game::input::NONE;
@@ -411,6 +431,7 @@ int main(int argc, char** argv)
                     }
 
                     if(isLevel && !isMusic && !isHelp)
+                    // nếu chọn level
                     {
                         g.render_back_ground_level();
                         g.renderBack();
@@ -419,18 +440,21 @@ int main(int argc, char** argv)
                         g.renderTick(isHard);
 
                         if(g.userInput.Type==game::input::CLICK_NORMAL)
+                        // nếu chọn level normal
                         {
                             isHard=0;
                             g.userInput.Type=game::input::NONE;
                         }
 
                         if(g.userInput.Type==game::input::CLICK_HARD)
+                        // nếu chọn level hard
                         {
                             isHard=1;
                             g.userInput.Type=game::input::NONE;
                         }
 
                         if(g.userInput.Type==game::input::CLICK_BACK)
+                        // để quay lại màn hình chính
                         {
                             isLevel = 0;
                             g.userInput.Type=game::input::NONE;
@@ -438,33 +462,28 @@ int main(int argc, char** argv)
 
                     }
                     if(!isLevel && !isMusic && !isHelp)
+                    // nếu ở màn hình chính
                     {
-//                        g.enemy.reset();
-//                        g.rocket.reset();
-//                        g.explode.reset_boom();
-//                        g.shiba.reset();
                         g.rocket.init();
                         g.laser.init();
                         g.explode.init();
                         g.land.init();
                         g.enemy.init();
                         g.pipe.init();
-//                        if(isSound)
-//                        {
-//                             g.sound.init(is_press_start, is_save_me, is_wind_fall, is_forever_bound);
-//                             isSound = 0;
-//                        }
                         g.shiba.init(isDark,isHard);
+
                         g.shiba.render();
                         g.renderMessage();
                         g.renderLevel();
                         g.render_music_button();
                         g.render_help_button();
                         g.renderquit();
+
                         g.replay();
                         g.sound.check_lgMusic();
 
                         if (g.userInput.Type == game::input::PLAY&&g.checkReplay())
+                        // nếu bấm vào nút chơi
                         {
                             g.sound.play_button_play();
                             g.Restart();
@@ -474,12 +493,9 @@ int main(int argc, char** argv)
                             g.userInput.Type = game::input::NONE;
                         }
                     }
-//                    g.land.update();
                 }
                 g.display();
             }
-//            g.enemy.init();
-//            g.pipe.init();
         }
         //Limit FPS
         frameTime = SDL_GetTicks() - frameStart;
