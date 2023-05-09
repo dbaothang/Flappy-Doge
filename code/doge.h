@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class doge:LTexture
+class doge: LTexture
 {
 public:
     bool init(bool isDark, bool isHard); // khởi tạo shiba
