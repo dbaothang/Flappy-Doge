@@ -13,10 +13,10 @@ class pipe:LTexture
 {
 private:
 
-    const int randMin = -373 + 60;
-    const int randMax = SCREEN_HEIGHT - LAND_HEIGHT - PIPE_SPACE - 373 - 60;
-    static bool pipeUp;
-    static bool pipeDown;
+    const int randMin = -373 + 60; // vị trí thấp nhất của cột
+    const int randMax = SCREEN_HEIGHT - LAND_HEIGHT - PIPE_SPACE - 373 - 60; // vị trí cao nhất của cột
+    static bool pipeUp; // biến để cột di chuyển lên
+    static bool pipeDown; // biến để cột di chuyển xuống
 
 public:
     bool init(); // khởi tạo

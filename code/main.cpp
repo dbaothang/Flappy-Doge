@@ -245,11 +245,10 @@ int main(int argc, char** argv)
      if (g.isDie())
         {
             if (isMenu)
-            // phát ra âm thanh shiba lúc chết
             {
-                    g.sound.playHit();
-                    g.shiba.render();
-                    g.sound.dogedie();
+                    g.sound.playHit(); // phát ra âm thanh shiba lúc chết
+                    g.shiba.render(); // vẽ hình ảnh chú chó rơi
+                    g.sound.dogedie(); // khởi tạo lại biến để phát ra âm thanh cộng điểm khi chơi lại
             }
 
             g.userInput.Type = game::input::NONE;
@@ -278,14 +277,9 @@ int main(int argc, char** argv)
                     {
                         g.renderBackgroundNight();
                     }
-//                    g.pipe.render();
-//                    g.enemy.render(isPause);
                 }
-//                g.rocket.render();
                 g.pipe.render();
-//                g.enemy.render(isPause);
                 g.land.render();
-//                g.explode.render(isPause);
                 if (isMenu)
                 // hiện ra menu lúc shiba chết
                 {
@@ -299,13 +293,6 @@ int main(int argc, char** argv)
                         g.rocket.render();
                         g.enemy.render(isPause);
                         g.laser.render();
-
-//                        g.enemy.reset();
-//                        g.rocket.reset();
-//                        g.explode.reset_boom();
-//                        g.shiba.reset();
-//                        g.laser.reset();
-
                         g.sound.stopMusic();
                         g.shiba.render();
                         g.shiba.fall(isHard);

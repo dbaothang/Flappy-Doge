@@ -40,9 +40,10 @@ void pipe::render()
 
         {
             Render(posPipe[i].x, posPipe[i].y);
+            Render(posPipe[i].x, posPipe[i].y + getHeight() + PIPE_SPACE, 180);
         }
 
-        Render(posPipe[i].x, posPipe[i].y + getHeight() + PIPE_SPACE, 180);
+
     }
 }
 

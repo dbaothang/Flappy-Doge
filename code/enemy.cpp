@@ -90,7 +90,7 @@ void enemy :: render (bool isPause)
             if (i%2==0)
             {
                  if (posEnemy[i].x <= SCREEN_WIDTH && posEnemy[i].x > -getWidth())
-
+                // điều kiện để render dơi lúc shiba chết (render ảnh tĩnh của dơi)
                 {
                     Render(posEnemy[i].x, posEnemy[i].y,angle,currentClip);
 
@@ -106,7 +106,7 @@ void enemy :: render (bool isPause)
             if (i%2==0)
             {
                 if (posEnemy[i].x <= SCREEN_WIDTH && posEnemy[i].x > -getWidth())
-
+                // tương tự như trên thì đây là điều kiện render dơi lúc tạm dừng game(render ảnh tĩnh của dơi)
                 {
                     Render(posEnemy[i].x, posEnemy[i].y,angle,currentClip);
 

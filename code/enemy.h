@@ -13,7 +13,7 @@ class enemy : LTexture
   private:
 
   int angle = 0;
-  int frame = 0;
+  int frame = 0; // biến để làm animation cho dơi
   static const int enemy_animation=5;
   SDL_Rect gSpriteClips [enemy_animation]; // xử lí animation dơi
 

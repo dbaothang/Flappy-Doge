@@ -52,6 +52,7 @@ void explode :: render (bool isPause)
     if(!isPause && !die)
     {
         if(posRocket.x<=0 || boom)
+        // điều kiện để boom nổ
         {
             boom = true;
             if (frame/7 <= explode_animation)
@@ -62,6 +63,7 @@ void explode :: render (bool isPause)
         }
     }
     if( (isPause||die) && boom )
+    // điều kiện để render ảnh tĩnh của boom
     {
         Render (posExplode.x,posExplode.y,angle,currentClip);
     }

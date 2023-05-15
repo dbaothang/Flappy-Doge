@@ -18,6 +18,7 @@ class game:LTexture
 {
 public:
     struct input
+    // các biến lấy dữ liệu từ người dùng
     {
         enum type { QUIT, PLAY, NONE, PAUSE,CLICK_PAUSE, CLICK_QUIT,
         CLICK_LEVEL, CLICK_BACK, CLICK_NORMAL, CLICK_HARD, CLICK_MUSIC,
@@ -25,6 +26,8 @@ public:
 
         type Type;
     };
+
+
     input userInput;
     doge shiba;
     pipe pipe;

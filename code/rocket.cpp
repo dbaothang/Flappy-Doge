@@ -40,7 +40,7 @@ void rocket :: update ()
 {
     if(!die)
     {
-        if (posRocket.x <= -10)
+        if (posRocket.x <= 0)
         {
             if (posEnemy[ahead].x > 200)
             {

@@ -14,7 +14,7 @@ class explode : LTexture
     private :
 
     int angle = 0;
-    int frame = 0;
+    int frame = 0; // biến để làm animation cho vụ nổ
     bool stop_explode = 0; // biến này dùng để vẽ ảnh vụ nổ đang dừng lại
     static const int explode_animation=4;
     SDL_Rect gSpriteClips [explode_animation]; // xử lí animation vụ nổ

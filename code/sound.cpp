@@ -14,23 +14,6 @@ bool sound::init()
     sound_path = "sound/sound.png";
     point_path = "sound/sfx_point.wav";
     music_path = "sound/press_start_music.mp3";
-//    if(is_press_start)
-//    {
-//        music_path = "sound/press_start_music.mp3";
-//    }
-//    if(is_save_me)
-//    {
-//        music_path = "sound/Save_Me.mp3";
-//    }
-//    if(is_wind_fall)
-//    {
-//        music_path = "sound/windfall.mp3";
-//    }
-//    if(is_forever_bound)
-//    {
-//        music_path = "sound/forever_Bound.mp3";
-//    }
-
     play_path= "sound/button_play.wav";
 
     bool success = true;

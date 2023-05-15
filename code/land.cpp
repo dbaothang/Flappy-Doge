@@ -35,15 +35,19 @@ void land::render()
     if (posLand.x > 0)
     {
         Render(posLand.x, posLand.y);
+        // vẽ mặt đất
     }
     else if (posLand.x > -SCREEN_WIDTH && posLand.x <= 0)
     {
         Render(posLand.x, posLand.y);
+        // vẽ mặt đất
         Render(posLand.x + SCREEN_WIDTH, posLand.y);
+        // vẽ mặt đất cách 1 khoảng bằng độ rộng của màn hình
     }
     else
     {
         posLand.getPos(0, SCREEN_HEIGHT - LAND_HEIGHT);
+        // reset lại mặt đất trước
         Render(posLand.x, posLand.y);
     }
 }
